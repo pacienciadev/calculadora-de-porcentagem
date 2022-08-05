@@ -1,0 +1,48 @@
+import {
+  Box,
+  Flex,
+  Avatar,
+  Button,
+  useColorModeValue,
+  Stack,
+  useColorMode,
+  Heading,
+} from "@chakra-ui/react";
+import { CgMoon } from "react-icons/cg";
+import { BsFillSunFill, BsGithub } from "react-icons/bs";
+
+export function Nav() {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  return (
+    <>
+      <Box bg={useColorModeValue("gray.100", "gray.900")} px={4}>
+        <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
+          <Stack direction={"row"} alignItems={"center"}>
+            <Avatar name="%" size={"sm"} bgColor="green.400"></Avatar>
+            <Box>
+              <Heading as="h1" size="sm" textTransform={"uppercase"}>
+                Calculadora de Porcentagem
+              </Heading>
+            </Box>
+          </Stack>
+
+          <Flex alignItems={"center"}>
+            <Stack direction={"row"} spacing={7}>
+              <Button onClick={toggleColorMode} size="md">
+                {colorMode === "light" ? (
+                  <CgMoon size="1.5rem" />
+                ) : (
+                  <BsFillSunFill size="1.5rem" />
+                )}
+              </Button>
+              <Button onClick={toggleColorMode} size="md">
+                <BsGithub size="1.5rem" />
+              </Button>
+            </Stack>
+          </Flex>
+        </Flex>
+      </Box>
+    </>
+  );
+}
