@@ -7,6 +7,7 @@ import {
   Stack,
   useColorMode,
   Heading,
+  Link,
 } from "@chakra-ui/react";
 import { CgMoon } from "react-icons/cg";
 import { BsFillSunFill, BsGithub } from "react-icons/bs";
@@ -36,9 +37,14 @@ export function Nav() {
                   <BsFillSunFill size="1.5rem" />
                 )}
               </Button>
-              <Button onClick={toggleColorMode} size="md">
-                <BsGithub size="1.5rem" />
-              </Button>
+              <Link
+                href="https://github.com/Ursones/calculadora-de-porcentagem"
+                isExternal
+              >
+                <Button size="md">
+                  <BsGithub size="1.5rem" />
+                </Button>
+              </Link>
             </Stack>
           </Flex>
         </Flex>

@@ -1,27 +1,26 @@
 import {
-  Alert,
   Box,
   FormLabel,
   Input,
   InputGroup,
   InputRightAddon,
   Stack,
-  Text,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { gerarPorcentagem } from "../../utils/gerarPorcentagem";
 
-export const HowMuchIsOf = () => {
+export const DetermineThatNumber = () => {
   const [value01, setValue01] = useState<string>("");
   const [value02, setValue02] = useState<string>("");
-  const [howMuchIsOf, setHowMuchIsOf] = useState<number>();
+  const [determineThatNumber, setDetermineThatNumber] = useState<number>();
 
   useEffect(() => {
     if (value01 && value02) {
-      const porcentagem = gerarPorcentagem(Number(value01));
-      setHowMuchIsOf(porcentagem * Number(value02));
+      const calc01 = 100 * Number(value02);
+      const result = calc01 / Number(value01);
+
+      setDetermineThatNumber(result);
     } else {
-      setHowMuchIsOf(undefined);
+      setDetermineThatNumber(undefined);
     }
   }, [value01, value02]);
 
@@ -35,11 +34,9 @@ export const HowMuchIsOf = () => {
       borderRadius="5"
       mb={6}
     >
-      <Stack direction={"row"} alignItems={"center"} mb={4}></Stack>
-
       <Stack direction={"row"} alignItems={"center"}>
         <Box>
-          <FormLabel>Quanto é (X) porcento</FormLabel>
+          <FormLabel>Valor percentual (X)</FormLabel>
           <InputGroup>
             <Input
               type="number"
@@ -51,7 +48,7 @@ export const HowMuchIsOf = () => {
           </InputGroup>
         </Box>
         <Box>
-          <FormLabel>De (Y)</FormLabel>
+          <FormLabel>Qual é sua porcentagem em cima do valor (Y)</FormLabel>
           <Input
             placeholder="Digite um número"
             type="number"
@@ -64,10 +61,11 @@ export const HowMuchIsOf = () => {
       <Stack direction={"row"} alignItems={"center"} mt={6}>
         <Box>
           <FormLabel>Resultado</FormLabel>
-
           <Input
             variant="outline"
-            value={howMuchIsOf ? howMuchIsOf : "Aguardando valores"}
+            value={
+              determineThatNumber ? determineThatNumber : "Aguardando valores"
+            }
             bgColor="gray.800"
             color={"white"}
             readOnly
