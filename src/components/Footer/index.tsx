@@ -28,7 +28,10 @@ export const Footer = () => {
         }}
       >
         <Heading as="h1" size="sm" textTransform={"uppercase"}>
-          Calculadora de Porcentagem
+          Calculadora de{" "}
+          <Text as={"span"} color={"green.400"}>
+            Porcentagem
+          </Text>
         </Heading>
       </Flex>
       <Text pt={6} fontSize={"lg"} textAlign={"center"}>
@@ -36,7 +39,19 @@ export const Footer = () => {
         <Link href="https://vitejs.dev/" color="green.400" isExternal>
           Vite
         </Link>{" "}
-        e{" "}
+        +{" "}
+        <Link href="https://pt-br.reactjs.org/" color="green.400" isExternal>
+          React
+        </Link>{" "}
+        +{" "}
+        <Link
+          href="https://www.typescriptlang.org/"
+          color="green.400"
+          isExternal
+        >
+          TS
+        </Link>{" "}
+        +{" "}
         <Link href="https://chakra-ui.com" color="green.400" isExternal>
           ChakraUI
         </Link>{" "}
@@ -45,7 +60,7 @@ export const Footer = () => {
         <Link href="https://github.com/ursones" color="green.400" isExternal>
           Rafael Eduardo
         </Link>{" "}
-        ❤
+        🚀
       </Text>
     </Box>
   );

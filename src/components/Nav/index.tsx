@@ -8,6 +8,7 @@ import {
   useColorMode,
   Heading,
   Link,
+  Text,
 } from "@chakra-ui/react";
 import { CgMoon } from "react-icons/cg";
 import { BsFillSunFill, BsGithub } from "react-icons/bs";
@@ -23,7 +24,10 @@ export function Nav() {
             <Avatar name="%" size={"sm"} bgColor="green.400"></Avatar>
             <Box>
               <Heading as="h1" size="sm" textTransform={"uppercase"}>
-                Calculadora de Porcentagem
+                Calculadora de{" "}
+                <Text as={"span"} color={"green.400"}>
+                  Porcentagem
+                </Text>
               </Heading>
             </Box>
           </Stack>
